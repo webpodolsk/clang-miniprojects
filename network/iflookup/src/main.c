@@ -1,5 +1,5 @@
-#include "../include/iflookup/iflookup.h"
 #include <stdio.h>
+#include <iflookup/iflookup.h>
 
 int main(int argc, char *argv[])
 {

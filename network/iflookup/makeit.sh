@@ -1,0 +1,12 @@
+#!/usr/bin/zsh
+
+ROOT_DIR=$(pwd)
+SOURCES_DIR=$ROOT_DIR/src
+BUILD_DIR=$ROOT_DIR/build
+BUILD_NAME=build
+PROGRAM_NAME=iflookup
+
+cmake -S $SOURCES_DIR -B $BUILD_DIR
+make --directory=$BUILD_DIR
+mv $BUILD_DIR/$BUILD_NAME $ROOT_DIR/$PROGRAM_NAME
+rm -r $BUILD_DIR

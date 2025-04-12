@@ -9,7 +9,7 @@
 #include <netinet/in.h>       // Описывает производные структуры sockaddr_in, sockaddr_in6
 #include <netpacket/packet.h> // Описывает производную структуру sockaddr_sll
 
-#include "../include/iflookup/iflookup.h"
+#include <iflookup/iflookup.h>
 
 uint8_t getNICAmount()
 {
