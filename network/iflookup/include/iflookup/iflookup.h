@@ -22,11 +22,12 @@
 */
 typedef struct netifdata
 {
-    char     devname[32];
-    uint8_t  mac[6];
-    uint8_t  ipv4[4];
-    uint8_t  ipv6[16];
-    bool     isActive;
+    char      devname[32];
+    uint32_t  devid;
+    uint8_t   mac[6];
+    uint8_t   ipv4[4];
+    uint8_t   ipv6[16];
+    bool      isActive;
 } netifdata;
 
 /*

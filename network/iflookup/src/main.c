@@ -11,11 +11,11 @@ int main(int argc, char *argv[])
     {
         if (ifaddrs[i].isActive)
         {
-            printf("Interface (\033[32m\033[1m%s\033[0m):\n", ifaddrs[i].devname);
+            printf("%d: Interface (\033[32m\033[1m%s\033[0m):\n", ifaddrs[i].devid, ifaddrs[i].devname);
         }
         else
         {
-            printf("Interface (\033[31m\033[1m%s\033[0m):\n", ifaddrs[i].devname);
+            printf("%d: Interface (\033[31m\033[1m%s\033[0m):\n", ifaddrs[i].devid, ifaddrs[i].devname);
         }
 
         printf("    ");

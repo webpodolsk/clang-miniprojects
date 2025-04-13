@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <ifaddrs.h>          // Функция получения адресов NIC getifaddrs()
-#include <net/if.h>           // Содержит константы со статусами NIC из вызова ioctl()
-#include <netinet/in.h>       // Описывает производные структуры sockaddr_in, sockaddr_in6
-#include <netpacket/packet.h> // Описывает производную структуру sockaddr_sll
+#include <ifaddrs.h>           // Функция получения адресов NIC getifaddrs()
+#include <net/if.h>            // Содержит константы со статусами NIC из вызова ioctl()
+#include <netinet/in.h>        // Описывает производные структуры sockaddr_in, sockaddr_in6
+#include <netpacket/packet.h>  // Описывает производную структуру sockaddr_sll
 
 #include <iflookup/iflookup.h>
 
@@ -101,6 +101,7 @@ bool getInterfacesAddr(netifdata *ifaddrs, size_t amount)
         {
         case AF_PACKET:
             struct sockaddr_ll *af_packet_addr = (struct sockaddr_ll *)ifa->ifa_addr;
+            ptr->devid = af_packet_addr->sll_ifindex;
             memcpy(&ptr->mac, &af_packet_addr->sll_addr, 6);
             break;
 
