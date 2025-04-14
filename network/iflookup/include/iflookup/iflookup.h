@@ -13,8 +13,8 @@
 #pragma once
 
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 /*
     Структура,   представляющая  сетевой  интерфейс  с
@@ -22,12 +22,18 @@
 */
 typedef struct netifdata
 {
-    char      devname[32];
-    uint32_t  devid;
-    uint8_t   mac[6];
-    uint8_t   ipv4[4];
-    uint8_t   ipv6[16];
-    bool      isActive;
+    char devname[32];
+    uint32_t devid;
+    bool isActive;
+    uint8_t mac[6];
+    union {
+        uint32_t value;
+        uint8_t array[4];
+    } ipv4;
+    union {
+        __uint128_t value;
+        uint8_t array[16];
+    } ipv6;
 } netifdata;
 
 /*
@@ -41,4 +47,4 @@ uint8_t getNICAmount();
     данными  при  помощи системных вызовов POSIX. amount
     получается при помощи getNICAmount()
 */
-bool getInterfacesAddr(netifdata* ifaddrs, size_t amount);
+bool getInterfacesAddr(netifdata *ifaddrs, size_t amount);

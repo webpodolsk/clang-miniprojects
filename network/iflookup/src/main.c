@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         printf("\n    ");
         for (int j = 0; j < 4; j++)
         {
-            printf("%d", ifaddrs[i].ipv4[j]);
+            printf("%d", ifaddrs[i].ipv4.array[j]);
             if (j < 3)
             {
                 printf(".");
